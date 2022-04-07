@@ -1,3 +1,6 @@
+
+import {heroes} from './data/heroes'
+
 const persona ={
   nombre:'Matias',
 edad:25,
@@ -9,4 +12,25 @@ persona2.nombre='Luis';
 console.log(persona)
 console.log(persona2)
 console.log(persona3)
+
+
+const getHeroeById =(id)=> heroes.find((heroes)=>heroes.id===id)
+
+const promesa =new Promise((resolve,reject)=>{
+    const operadorBool=false
+    console.log(getHeroeById(2))
+    console.log('Esto siempre se ejecuta')
+    if(operadorBool){
+        resolve()
+    }else{
+        reject()
+    }
+
+})
+
+promesa.then(()=>{
+    console.log('la promesa finaliza exitosamente')
+}).catch(()=>{
+    console.log('la promesa falla ')
+})
 
