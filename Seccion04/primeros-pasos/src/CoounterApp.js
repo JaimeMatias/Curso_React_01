@@ -13,6 +13,7 @@ const CounterApp = ({ edad }) => {
         <h2>Edad: {counter}</h2>
         <button id='ButtonIncrementar' onClick={()=>{setCounter(counter+1)}} >+1</button>
         <button id='ButtonDecrementar'onClick={()=>{setCounter(counter-1)}}>-1</button>
+        <button id='ButtonReiniciar'onClick={()=>{setCounter(edad)}}>Reiniciar</button>
     </>
 
 };
