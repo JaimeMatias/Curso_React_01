@@ -1,8 +1,17 @@
-test('Esta es mi primera prueba', (() => {
-  const isActive= false
-  if(isActive){
+describe('Pruebas en el archivo Demo.js',()=>{
+  test('deben de er iguales los string', () => {
+    //1. Inicialización
+    const mensaje='Hola Mundo';
     
-  }else{
-throw new Error('La prueba falla, valor false')
-  }
-}))
+    //2. Estimulo
+    const mensaje2="Hola Mundo";
+    
+    //3. Observar el comportamiento
+    expect(mensaje).toBe(mensaje2)
+    })
+    
+}
+
+);
+
+
