@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 
-const PrimeraApp = ({ saludo, edad}) => {
+const PrimeraApp = ({ saludo, edad }) => {
     //Todas las funciones  pueden devolver 1 unico elemento, para devolver varias etiquetas desde una función
     //Para poder devolver varias etiquetas, se utiliza el elemento  de abrir y cerrar llave
 
@@ -12,9 +12,9 @@ const PrimeraApp = ({ saludo, edad}) => {
     // Para poder mostrar un objeto, hay que primero pasarlo a Json
 
     return <>
-        <pre>{JSON.stringify(saludo1.nombre)}</pre>
+        <h1>{JSON.stringify(saludo1.nombre)}</h1>
+        <p> {edad} </p>
         <h1>Mi primera Aplicación</h1>
-        <h1>{edad}</h1>
     </>
 
 };
@@ -27,7 +27,7 @@ PrimeraApp.propTypes = {
 
 //Sirve para definir los valores por defecto de las distintas propiedades del componente
 PrimeraApp.defaultProps = {
-    saludo: 'Hola', 
+    saludo: 'Hola',
     edad: 15,
 }
 export default PrimeraApp;
