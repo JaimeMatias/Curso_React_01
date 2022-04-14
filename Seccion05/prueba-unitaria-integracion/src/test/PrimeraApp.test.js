@@ -3,6 +3,7 @@ import {shallow} from 'enzyme';
 import '@testing-library/jest-dom'
 
 import PrimeraApp from "../PrimeraApp";
+import { text } from "express";
 
 describe('Pruebas en <PrimerApp />',()=>{
 
@@ -19,6 +20,14 @@ describe('Pruebas en <PrimerApp />',()=>{
       const wrapper =shallow( <PrimeraApp />);
 
       expect(wrapper).toMatchSnapshot();
+    })
+    
+    test('Debe de mostrar el subtitulo enviado por props', () => {
+      const edad=14;
+      const wrapper =shallow( <PrimeraApp edad={edad} />);
+      const textoParrafo =wrapper.find('p').text();
+      console.log(textoParrafo);
+      expect(textoParrafo).toBe("14");
     })
     
     

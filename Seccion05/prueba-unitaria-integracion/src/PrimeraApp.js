@@ -13,7 +13,7 @@ const PrimeraApp = ({ saludo, edad }) => {
 
     return <>
         <h1>{JSON.stringify(saludo1.nombre)}</h1>
-        <p> {edad} </p>
+        <p>{edad}</p>
         <h1>Mi primera Aplicación</h1>
     </>
 

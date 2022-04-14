@@ -1,30 +1,37 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
-const CounterApp = ({ edad }) => {  
-    //Como yo no puedo modificar lass variables, lo que se usa para ir actualizando el estado de las cosas son los Hooks
-    //Definición del Hook nombre
-    const [counter, setCounter] = useState(edad);
+const CounterApp = ({ value = 10 }) => {
 
-    return <>
-        <h1>
-            CounterApp Boddy
-        </h1>
-        <h2>Edad: {counter}</h2>
-        <button id='ButtonIncrementar' onClick={()=>{setCounter(counter+1)}} >+1</button>
-        <button id='ButtonDecrementar'onClick={()=>{setCounter(counter-1)}}>-1</button>
-        <button id='ButtonReiniciar'onClick={()=>{setCounter(edad)}}>Reiniciar</button>
-    </>
+    const [ counter, setCounter ] = useState( value ); // []
+    
 
-};
+    // handleAdd
+    const handleAdd = () => {
+        setCounter( counter + 1);
+        // setCounter( (c) => c + 1 );
+    }
 
+    const handleSubtract = () => setCounter( counter - 1);
+    
+    const handleReset = () => setCounter( value );
+
+
+    return (
+        <>
+            <h1>CounterApp</h1>
+            <h2> { counter } </h2>
+
+            <button onClick={ handleAdd }>+1</button>
+            <button onClick={ handleReset }>Reset</button>
+            <button onClick={ handleSubtract }>-1</button>
+        </>
+    )
+}
 
 CounterApp.propTypes = {
-    edad: PropTypes.number
-};
-
-CounterApp.defaultProps = {
-    edad: 18
+    value: PropTypes.number
 }
 
 export default CounterApp;
+
