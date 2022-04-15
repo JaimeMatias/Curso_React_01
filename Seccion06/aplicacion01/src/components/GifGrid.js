@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from 'react'
+import GifGridItem from './GifGridItem'
+import { useFetchGifs } from './hooks/useFetchGifs'
 
 const GifGrid = ({ category }) => {
-    const [contador, setContador] = useState(contador)
-    useEffect( //useEffect sirve para definir secciones de codigo a ejecutar condicionalmente
-        () => {
-            getGifs()
-        }, [])//Indicar que solo se ejecute el componente cuando se renderiza por primera vez
+    console.log('Enviado a UseFetcGif',category)
+    const { data:images, loading } = useFetchGifs(category);
 
 
-    const getGifs = async () => {
-        const url = 'https://api.giphy.com/v1/gifs/search?q=burrito&limit=5&api_key=X6hBm4AYW7Fhw9EK9kKTcrH5CAT6ENDP&rating=g';
-        const resp = await fetch(url);
-        const { data } = await resp.json()
-        const gifs = data.map(img => {
-            return {
-                id: img.id,
-                title: img.title,
-                url: img.images?.downsized_medium.url
-            }
-        })
-        console.log(gifs)
-    }
     return (
-        <div>
-
+        <>
             <h3>{category}</h3>
+            {loading && <p>loading</p>}
 
-        </div>
+            <div className="card-grid">
+
+                {
+                    // La función map, me permite iterar sobre los elementos de un arreglo cuando estoy en una pagina web
+                    images.map((img) =>
+
+                        <GifGridItem img={img} key={img.id} />
+
+
+
+
+
+                    )
+                }
+
+            </div>
+        </>
+
     )
 }
 

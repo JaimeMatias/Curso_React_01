@@ -18,7 +18,7 @@ export const AddCategory = ({ setCategories }) => {
                     return ([...cats])
 
                 } else {
-                    return ([...cats, inputValue])
+                    return ([inputValue,...cats ])
                 }
 
 
