@@ -26,8 +26,6 @@ export const AddCategory = ({ setCategories }) => {
             //Esto se debe a que las funciones de Hooks conservan el estado anterior
         }
 
-
-        console.log(inputValue)
     }
     return (
         <>

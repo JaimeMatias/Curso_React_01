@@ -3,7 +3,6 @@ import GifGridItem from './GifGridItem'
 import { useFetchGifs } from './hooks/useFetchGifs'
 
 const GifGrid = ({ category }) => {
-    console.log('Enviado a UseFetcGif',category)
     const { data:images, loading } = useFetchGifs(category);
 
 
