@@ -12,19 +12,17 @@ export const AddCategory = ({ setCategories }) => {
     const handleSubmit = (e) => {
         //Función que se dispara cuando se envía el formulario
         e.preventDefault();
-        if (inputValue.trim().length > 2) {
-            setCategories(cats => {
-                if (cats.includes(inputValue)) {
-                    return ([...cats])
-
-                } else {
-                    return ([inputValue,...cats ])
-                }
+        //Guard Clause
+        if (inputValue.trim().length < 3) return
 
 
-            }) //Usa el metodo de Callback, utilizando una variable cat, la cual tiene los datos de las categorias
-            //Esto se debe a que las funciones de Hooks conservan el estado anterior
-        }
+        setCategories(cats => {
+            if (cats.includes(inputValue)) return ([...cats])
+            return ([inputValue, ...cats])
+
+        }) //Usa el metodo de Callback, utilizando una variable cat, la cual tiene los datos de las categorias
+        //Esto se debe a que las funciones de Hooks conservan el estado anterior
+
 
     }
     return (
