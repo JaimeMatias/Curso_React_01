@@ -1,5 +1,5 @@
 
-
+import PropTypes from 'prop-types';
 
 export const getGifs = async( category ) => {
 
@@ -16,6 +16,9 @@ export const getGifs = async( category ) => {
     })
 
     return gifs;
+}
 
-
+//Sirve para definir las propiedades del componente eL Tipo del valor y si es requerido o no
+getGifs.propTypes = {
+    category: PropTypes.string.isRequired,
 }
