@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba <HookApp /> debe mostrar el Componente correctamente  1`] = `
+<div>
+  <h1>
+    Hola Mundo
+  </h1>
+</div>
+`;
