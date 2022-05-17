@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <MultipleCustomHooks /> debe de mostrarse correctamente  1`] = `
+<div>
+  <h1>
+    BreakingBad Quotes
+  </h1>
+  <hr />
+  <div
+    className="alert alert-info text-certer"
+  >
+    Loading...
+  </div>
+  <button
+    className="btn"
+  >
+    anterior
+  </button>
+  <button
+    className="btn"
+  >
+    reiniciar
+  </button>
+  <button
+    className="btn"
+    onClick={[Function]}
+  >
+    siguiente
+  </button>
+</div>
+`;
+
+exports[`Pruebas en <MultipleCustomHooks />> debe de mostrarse correctamente  1`] = `
+<div>
+  <h1>
+    BreakingBad Quotes
+  </h1>
+  <hr />
+  <div
+    className="alert alert-info text-certer"
+  >
+    Loading...
+  </div>
+  <button
+    className="btn"
+    onClick={[Function]}
+  >
+    anterior
+  </button>
+  <button
+    className="btn"
+    onClick={[Function]}
+  >
+    reiniciar
+  </button>
+  <button
+    className="btn"
+    onClick={[Function]}
+  >
+    siguiente
+  </button>
+</div>
+`;
