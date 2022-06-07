@@ -1,33 +1,32 @@
-import React, { useState } from 'react'
-import { GetHeroesByName } from '../helper/getHeroeByName'
+import React, { useMemo, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom';
+import { GetHeroesByName } from '../helper/getHeroeByName';
+import queryString from 'query-string';
 import HeroCard from '../heroes/heroCard';
 import useForm from '../hooks/useForm'
 
 export const SearchScreen = () => {
-  const [controlador, setControlador] = useState(0);
-  const [heroe,setHeroe]=useState('');
-  const [{ searchText }, handleInputChange, reset] = useForm({
-    searchText: ''
+  const navigate = useNavigate()
+  const location = useLocation()
+  console.log(location.search)
+  const { q = '' } = queryString.parse(location.search)
+   const [{ searchText }, handleInputChange, reset] = useForm({
+    searchText: q
   })
+
+
+ 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(`Valor del Controlador: ${controlador}`)
     console.log('Submit Realizado: ', searchText)
-    const Heroe = GetHeroesByName(searchText)
-    console.log(!Heroe)
-    if(!Heroe){
-      reset()
-      setControlador(+1)
-      return
-    }
-    reset()
-    setControlador(+2)
-    setHeroe(Heroe)
+    navigate(`?q=${searchText}`)
+  }
+  const HeroeFileted =useMemo(()=>GetHeroesByName(q),[q])  //Se va a voler a llamar a GetHeroesByName cuando la query(q) cambio, no antes
 
-  }
-  const handleSearch = () => {
-    console.log()
-  }
+ 
+  console.log(HeroeFileted)
+
+
   return (
     <>
       <h1>Busquedas</h1>
@@ -55,19 +54,23 @@ export const SearchScreen = () => {
             </button>
           </form>
 
-          {
-            (controlador == 2) &&
-            <p className='text-muted'>Mostrando Heroe {JSON.stringify(heroe)}</p>&&
-            <HeroCard key={heroe.id} hero={heroe}/>
-
+        </div>
+        <div className='col-7'>
+          <h4>Resultados</h4>
+          <hr />
+          {(q==='')
+          ?<div className='alert alert-info'>Buscar un Heroe</div>
+        :HeroeFileted.length==0 &&
+        <div className='alert alert-danger'>No se encontro el Heroe</div>
+        }
+          {HeroeFileted.length!=0 &&HeroeFileted.map(hero => (
+            <HeroCard key={hero.id}
+              hero={hero} />
+          ))
+          
           }
-                    {
-            (controlador == 1) &&
-            <p className='text-muted'>Heroe No Encontrado</p>
 
-          }
-
-
+          
         </div>
 
       </div>
