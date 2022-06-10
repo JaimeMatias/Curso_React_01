@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import {useNavigate} from 'react-router-dom'
 import { AuthContext } from '../../auth/autContext';
+import { types } from '../../types/types';
 const LoginScren = () => {
 const navigate=useNavigate();
 const {user,dispatch}=useContext(AuthContext)
@@ -10,11 +11,13 @@ const {user,dispatch}=useContext(AuthContext)
     // });
 
     const action ={
-      type:'[auth] Login',
+      type:types.login,
       payload:{name:'Matias'}
     }
     dispatch(action)
-    navigate('/',{
+    const lugar=localStorage.getItem('lastPast')
+    console.log(`El lugar al cual va a ir es:${lugar}`)
+    navigate(lugar,{
       replace:true
     })
   }

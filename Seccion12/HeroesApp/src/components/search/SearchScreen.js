@@ -8,7 +8,8 @@ import useForm from '../hooks/useForm'
 export const SearchScreen = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(location.search)
+  const lastPast=`/Search${location.search}`
+  localStorage.setItem('lastPast',lastPast)
   const { q = '' } = queryString.parse(location.search)
    const [{ searchText }, handleInputChange, reset] = useForm({
     searchText: q

@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/autContext';
+import { types } from '../../types/types';
 //Sirve para cambiar la URL que aparece
 export const Navbar = () => {
-    const contexto = useContext(AuthContext)
-
-    const { user } = contexto
+    const { user, dispatch } = useContext(AuthContext)
     const usuarioAuth = user.name
+
     const navigate = useNavigate();
+
     const handleLogout = () => {
+
+        dispatch({type: types.logout})
         console.log('logout')
         navigate('/login', {
             replace: true
