@@ -1,13 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import JournalAPP from './JournalAPP';
-import './styles/styles.scss'
+import './styles.css'
 
 
-ReactDOM.render(
-
-  <JournalAPP />,
-    document.getElementById('root')
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <JournalAPP />
 );
 
 // If you want to start measuring performance in your app, pass a function
