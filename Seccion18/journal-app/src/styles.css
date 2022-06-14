@@ -10,3 +10,7 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+.box-shadow{
+    box-shadow:0px 5px 50px rgba(0, 0, 0, 5) ;
+}
