@@ -1,13 +1,13 @@
 import React from 'react'
-import CssBaseline from '@mui/material/CssBaseline'
-import { ThemeProvider } from '@mui/material/styles'
+import {CssBaseline} from '@mui/material'
+import { ThemeProvider } from '@emotion/react'
 import { purpleTheme } from './purple'
 
 
 const AppTheme = ({ children }) => {//Children va a tener el valor de la App
     return (
-        <ThemeProvider theme={purpleTheme
-        }>
+        
+        <ThemeProvider theme={purpleTheme }>
             <CssBaseline />
             {children}
         </ThemeProvider>
