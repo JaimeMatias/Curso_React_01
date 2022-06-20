@@ -5,13 +5,14 @@ import './index.css';
 import App from './App';
 import { store } from './store/store';
 import reportWebVitals from './reportWebVitals';
+import PokemonAp from './PokemonAp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
-
+      {/* <App /> */}
+      <PokemonAp/>
     </Provider>
 
   </React.StrictMode>

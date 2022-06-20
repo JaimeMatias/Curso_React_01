@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: 10,
-}
+} //Value va a ser el nombre que reciba el atributo del Redux cuando se almacena en el store
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -18,8 +18,8 @@ export const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    incrementByAmount: (state,Amount) => {
+      state.value += Amount.payload
     },
   },
 })
