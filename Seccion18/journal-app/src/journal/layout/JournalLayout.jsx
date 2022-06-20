@@ -9,13 +9,6 @@ const drawerWidth = 340;
 const JournalLayout = ({ children }) => {
     return (
 
-        // <Grid container
-        //     spacing={0}
-        //     direction='column'
-        //     alignItems='center'
-        //     justifyContent='center'
-        //     sx={{ minHeight: '100vh', backgroundColor: 'yellow', padding: 4 }}
-        // >
             <Box sx={{ display: 'flex' }}>
                 <NavBar drawerWidth={drawerWidth} />
                 <SideBar drawerWidth={drawerWidth} />
@@ -28,7 +21,6 @@ const JournalLayout = ({ children }) => {
 
             </Box>
 
-        // </Grid>
 
 
     )
