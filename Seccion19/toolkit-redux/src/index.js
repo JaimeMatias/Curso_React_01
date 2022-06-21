@@ -6,13 +6,15 @@ import App from './App';
 import { store } from './store/store';
 import reportWebVitals from './reportWebVitals';
 import PokemonAp from './PokemonAp';
+import TodoApp from './TodoApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <App /> */}
-      <PokemonAp/>
+      {/* <PokemonAp/> */}
+      <TodoApp/>
     </Provider>
 
   </React.StrictMode>
