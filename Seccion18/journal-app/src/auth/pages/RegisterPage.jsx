@@ -6,21 +6,24 @@ import AuthLayout from '../layout/AuthLayout';
 import { useForm } from '../../hooks/useForm';
 
 export const RegisterPage = () => {
-  const {name, email, password, onInputChange,formState,
-  isFormValid,displayNameValid,emailValid,passwordValid } = useForm({
-    name:'matias',
-    email: 'matias@google.com',
-    password: '123456'
 
-  });
   const formValidations = {
-    email:[(value)=>value.includes('@'),'El correo debe de tener una @'],
-    password:[(value)=>value.length<=6,'La contrasena es muy corta'],
-    name:[(value)=>value.length <=1,'El nombre es obligatorio']
+    email: [(value) => value.includes('@'), 'El correo debe de tener una @'],
+    password: [(value) => value.length >= 8, 'La contrasena es muy corta'],
+    name: [(value) => value.length >= 1, 'El nombre es obligatorio']
   }
-  const onSubmit =(event)=>{
-   event.preventDefault();
+  const { name, email, password, onInputChange, formState,
+    isFormValid, nameValid, emailValid, passwordValid } = useForm({
+      name: 'matias',
+      email: 'matias@google.com',
+      password: '123456'
+
+    }, formValidations);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
     console.log(formState)
+    console.log(nameValid )
   }
 
   return (
@@ -35,7 +38,7 @@ export const RegisterPage = () => {
               name='name'
               value={name}
               onChange={onInputChange}
-              error={!displayNameValid}
+              error={nameValid}
               helperText='El nombre es obligatorio'
               fullWidth />
           </Grid>
@@ -47,7 +50,7 @@ export const RegisterPage = () => {
               name='email'
               value={email}
               onChange={onInputChange}
-              error={!emailValid}
+              error={emailValid}
               helperText='El Correo es obligatorio'
               fullWidth />
           </Grid>
@@ -58,7 +61,7 @@ export const RegisterPage = () => {
               name='password'
               value={password}
               onChange={onInputChange}
-              error={!passwordValid}
+              error={passwordValid}
               helperText='La contrasena es obligatoria'
               fullWidth />
           </Grid>
